@@ -1,0 +1,1 @@
+"D:\Program Files\Python\Scripts\pyinstaller.exe" -F -w D:\MyPython\UIdataQuery\mainwindow_app.py

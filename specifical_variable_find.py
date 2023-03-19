@@ -8,11 +8,11 @@ from find_mech import fun_find_mech
 from specifical_variable_find_get_value import *
 from find_mech import fun_find_mech_by_para
 
-file_a2l = get_file_path.file_a2l
-file_dcm = get_file_path.file_dcm
-file_geskon = get_file_path.file_geskon
-file_mech_table = get_file_path.file_mech_table
-file_data_mytable = get_file_path.file_data_mytable
+# file_a2l = get_file_path.file_a2l
+# file_dcm = get_file_path.file_dcm
+# file_geskon = get_file_path.file_geskon
+# file_mech_table = get_file_path.file_mech_table
+# file_data_mytable = get_file_path.file_data_mytable
 
 # from get_file_path import get_file_path
 # file_a2l, file_geskon, file_dcm, file_data_mytable, file_mech_table = get_file_path()
@@ -24,7 +24,7 @@ file_data_mytable = get_file_path.file_data_mytable
 
 # Time_Rampup_Suspension
 # tHwlWrapI_RampUpSuspensionTime_XDU16*0.001
-def spec_fun_find_variable_0():
+def spec_fun_find_variable_0(file_a2l,file_geskon,file_dcm,file_mech_table):
     logger.debug('调用函数<algorithm 0>')
     spec_find_result = False
     spec_find_para = ""
@@ -74,7 +74,7 @@ def spec_fun_find_variable_0():
 
 # Position_Deviation_Rack_Safety_CSAP
 # wRackPo_RackposToleranceRA_XDU16/（Sheet Steering Ratio $Z$15）
-def spec_fun_find_variable_1():
+def spec_fun_find_variable_1(file_a2l,file_geskon,file_dcm,file_mech_table):
     logger.debug('调用函数<algorithm 1>')
     spec_find_result = False
     spec_find_para = ""
@@ -212,7 +212,7 @@ def spec_fun_find_variable_1():
 
 # Gradient_Handling_Rotortorque_Safety_BLOCK
 # xEndStop_RateLimiterToZeroRate_XDU32*1000
-def spec_fun_find_variable_2():
+def spec_fun_find_variable_2(file_a2l,file_geskon,file_dcm,file_mech_table):
     logger.debug('调用函数<algorithm 2>')
     spec_find_result = False
     spec_find_para = ""
@@ -346,7 +346,7 @@ def spec_fun_find_variable_2():
 
 # Min_Vehicle_speed
 # vEndStop_uVehSpeedLearnFinished_XDU16
-def spec_fun_find_variable_3():
+def spec_fun_find_variable_3(file_a2l,file_geskon,file_dcm,file_mech_table):
     logger.debug('调用函数<algorithm 3>')
     spec_find_result = False
     spec_find_para = ""
@@ -480,7 +480,7 @@ def spec_fun_find_variable_3():
 
 # rotor_speed_LSS
 # nEndStop_oRotSpeedLearnFinished_XDU16
-def spec_fun_find_variable_4():
+def spec_fun_find_variable_4(file_a2l,file_geskon,file_dcm,file_mech_table):
     logger.debug('调用函数<algorithm 4>')
     spec_find_result = False
     spec_find_para = ""
@@ -614,7 +614,7 @@ def spec_fun_find_variable_4():
 
 # Factor_Input_Shaft_Torque_2_Rotor_Torque
 # xsyRatioEfficiency_XDU16
-def spec_fun_find_variable_5():
+def spec_fun_find_variable_5(file_a2l,file_geskon,file_dcm,file_mech_table):
     logger.debug('调用函数<algorithm 5>')
     spec_find_result = False
     spec_find_para = ""
@@ -749,7 +749,7 @@ def spec_fun_find_variable_5():
 # Speed_Rack_HSD_Start_1
 # Speed_Rack_HSD_Start_1 =
 # (6 * Smallest y-value of nEndStopHsd_HighSpeedDampingStart_XAS16 * RackToPinionRatioAvg) /360 * 1000 * SteeringGearRatioAvg)
-def spec_fun_find_variable_6():
+def spec_fun_find_variable_6(file_a2l,file_geskon,file_dcm,file_mech_table):
     logger.debug('调用函数<algorithm 6>')
     spec_find_result = False
     spec_find_para = ""
@@ -791,7 +791,7 @@ def spec_fun_find_variable_6():
 # Speed_Rack_HSD_Start_2
 # Speed_Rack_HSD_Start_2 =
 # (6 * last y-value of nEndStopHsd_HighSpeedDampingStart_XAS16 * RackToPinionRatioAvg) /360 * 1000 * SteeringGearRatioAvg)
-def spec_fun_find_variable_7():
+def spec_fun_find_variable_7(file_a2l,file_geskon,file_dcm,file_mech_table):
     logger.debug('调用函数<algorithm 7>')
     spec_find_result = False
     spec_find_para = ""
@@ -832,7 +832,7 @@ def spec_fun_find_variable_7():
 
 # Speed_Rotor_Damping_Activate
 # Y Axis of nEndStopHsdCheck_HighSpeedDampingStart_XAS16[0]
-def spec_fun_find_variable_8():
+def spec_fun_find_variable_8(file_a2l,file_geskon,file_dcm,file_mech_table):
     logger.debug('调用函数<algorithm 8>')
     spec_find_result = False
     spec_find_para = ""
@@ -866,7 +866,7 @@ def spec_fun_find_variable_8():
 # Torque_HSD_Short_Before_Endstop
 # mEndStopHsd_MaxMotorTorque_FirstP_XDU16 or
 # Y Axis of mEndStopHsd_MaxMotorTorque_XAS16[0]
-def spec_fun_find_variable_9():
+def spec_fun_find_variable_9(file_a2l,file_geskon,file_dcm,file_mech_table):
     logger.debug('调用函数<algorithm 9>')
     spec_find_result = False
     spec_find_para = ""
@@ -909,7 +909,7 @@ def spec_fun_find_variable_9():
 # Torque_HSD_High_Distance_2_Endstop
 # mEndStopHsd_MaxMotorTorque_LastP_XDU16 or
 # Y Axis of mEndStopHsd_MaxMotorTorque_XAS16[2]
-def spec_fun_find_variable_10():
+def spec_fun_find_variable_10(file_a2l,file_geskon,file_dcm,file_mech_table):
     logger.debug('调用函数<algorithm 10>')
     spec_find_result = False
     spec_find_para = ""
@@ -952,7 +952,7 @@ def spec_fun_find_variable_10():
 
 # Speed_Tie_Rod_Damping_Activate
 # 6*x-value of xActDamp_TorqueDepOnRotorSpeed_XAU16[0]*(Sheet Steering Ratio $Z$16) / (​360 * 1000 * Sheet Steering Ratio $Z$9)
-def spec_fun_find_variable_11():
+def spec_fun_find_variable_11(file_a2l,file_geskon,file_dcm,file_mech_table):
     logger.debug('调用函数<algorithm 11>')
     spec_find_result = False
     spec_find_para = ""
@@ -993,7 +993,7 @@ def spec_fun_find_variable_11():
 # Voltage_Power_Supply_Threshold
 # x-value nEndStopHsd_UnderVoltageStartOffset_XAU16 [3] or
 # uEndStopHsd_ApplyUOffsetTh_XDU16
-def spec_fun_find_variable_12():
+def spec_fun_find_variable_12(file_a2l,file_geskon,file_dcm,file_mech_table):
     logger.debug('调用函数<algorithm 12>')
     spec_find_result = False
     spec_find_para = ""
@@ -1036,7 +1036,7 @@ def spec_fun_find_variable_12():
 
 # Speed_Tie_Rod_Low
 # 6 * nEndStopHsd_MinNeededRotSpdVLow_XDU16 * (Sheet Steering Ratio $Z$16) /360 * 1000 * Sheet Steering Ratio $Z$9)
-def spec_fun_find_variable_13():
+def spec_fun_find_variable_13(file_a2l,file_geskon,file_dcm,file_mech_table):
     logger.debug('调用函数<algorithm 13>')
     spec_find_result = False
     spec_find_para = ""
@@ -1077,7 +1077,7 @@ def spec_fun_find_variable_13():
 
 # Speed_Tie_Rod_High
 # 6 * nEndStopHsd_MinNeededRotSpdVHigh_XDU16 *(Sheet Steering Ratio $Z$16) / 360 * 1000 * Sheet Steering Ratio $Z$9)
-def spec_fun_find_variable_14():
+def spec_fun_find_variable_14(file_a2l,file_geskon,file_dcm,file_mech_table):
     logger.debug('调用函数<algorithm 14>')
     spec_find_result = False
     spec_find_para = ""
@@ -1118,7 +1118,7 @@ def spec_fun_find_variable_14():
 
 # Speed_Tie_Rod_Undervoltage_Offset
 # 6 * nEndStopHsd_UndervoltOffset_XDU16 * (Sheet Steering Ratio $Z$16)  / 360 * 1000 * Sheet Steering Ratio $Z$9)
-def spec_fun_find_variable_15():
+def spec_fun_find_variable_15(file_a2l,file_geskon,file_dcm,file_mech_table):
     logger.debug('调用函数<algorithm 15>')
     spec_find_result = False
     spec_find_para = ""
@@ -1158,7 +1158,7 @@ def spec_fun_find_variable_15():
 
 # Speed_Vehicle_Thres_DynStMotTrq
 # last point of zBci_BaseTorqueCharSelect_XAS16
-def spec_fun_find_variable_16():
+def spec_fun_find_variable_16(file_a2l,file_geskon,file_dcm,file_mech_table):
     logger.debug('调用函数<algorithm 16>')
     spec_find_result = False
     spec_find_para = ""
@@ -1192,7 +1192,7 @@ def spec_fun_find_variable_16():
 # Force_Rack_Max_TargetStTrqCurve
 # kBci_MaxRackForce_XDU16
 # find in geskon/dcm and mech
-def spec_fun_find_variable_17():
+def spec_fun_find_variable_17(file_a2l,file_geskon,file_dcm,file_mech_table):
     logger.debug('调用函数<algorithm 17>')
     spec_find_result = False
     spec_find_para = ""
@@ -1229,7 +1229,7 @@ def spec_fun_find_variable_17():
 # Ratio_RackForce2MotorTrq
 # xsyRackForceToEngTorque_XDU16
 # find in geskon/dcm and mech
-def spec_fun_find_variable_18():
+def spec_fun_find_variable_18(file_a2l,file_geskon,file_dcm,file_mech_table):
     logger.debug('调用函数<algorithm 18>')
     spec_find_result = False
     spec_find_para = ""
@@ -1265,7 +1265,7 @@ def spec_fun_find_variable_18():
 
 # Distance_Travel_UpdateStatus_EndStopLearning_Rack
 # lEndStop_StatusChangeAllowedOffset_XDU16 + mEndStop_SpringTorque_XAS16's start position
-def spec_fun_find_variable_19():
+def spec_fun_find_variable_19(file_a2l,file_geskon,file_dcm,file_mech_table):
     print(f"algorithm 19")
     logger.debug('调用函数<algorithm 19>')
     search_in_sheet_list = ["SW-Endstop"]
@@ -1275,7 +1275,7 @@ def spec_fun_find_variable_19():
         find_text_intxt(variable_to_find="lEndStop_StatusChangeAllowedOffset_XDU16", file_name=file_geskon)
     find_result_dcm1, paragraph_find_dcm1 = \
         find_text_intxt(variable_to_find="lEndStop_StatusChangeAllowedOffset_XDU16", file_name=file_dcm)
-    mech_value1 = fun_find_mech_by_para("lEndStop_StatusChangeAllowedOffset_XDU16", search_in_sheet_list)
+    mech_value1 = fun_find_mech_by_para(file_mech_table,"lEndStop_StatusChangeAllowedOffset_XDU16", search_in_sheet_list)
     get_value_result1, first_find_geskon1 = get_Yvalue_first_from_KENNLINIE(paragraph_find_geskon1)
     get_value_result1, first_find_dcm1 = get_Yvalue_first_from_KENNLINIE(paragraph_find_dcm1)
 
@@ -1315,7 +1315,7 @@ def spec_fun_find_variable_19():
 
 # Distance_Travel_FromEndStop_EndStopDampingActive
 # xEndStop_Damping_XAS16_0 Y轴为0对应的X
-def spec_fun_find_variable_20():
+def spec_fun_find_variable_20(file_a2l,file_geskon,file_dcm,file_mech_table):
     print(f"algorithm 20")
     logger.debug('调用函数<algorithm 20>')
     spec_find_result = False
@@ -1351,7 +1351,7 @@ def spec_fun_find_variable_20():
 
 # Distance_Travel_FromEndStop_EndStopDampingPeak
 # xEndStop_Damping_XAS16_0 Y轴最大对应的X
-def spec_fun_find_variable_21():
+def spec_fun_find_variable_21(file_a2l,file_geskon,file_dcm,file_mech_table):
     print(f"algorithm 21")
     logger.debug('调用函数<algorithm 21>')
     spec_find_result = False
@@ -1386,7 +1386,7 @@ def spec_fun_find_variable_21():
 
 # Speed_Border1_ExtraDamping_Motor
 # X-Axis of xEndStop_FadeFactorLimitation_XAU16[0]
-def spec_fun_find_variable_22():
+def spec_fun_find_variable_22(file_a2l,file_geskon,file_dcm,file_mech_table):
     print(f"algorithm 22")
     logger.debug('调用函数<algorithm 22>')
     spec_find_result = False
@@ -1421,7 +1421,7 @@ def spec_fun_find_variable_22():
 
 # Speed_Border2_ExtraDamping_Motor
 # X-Axis of xEndStop_FadeFactorLimitation_XAU16[1]
-def spec_fun_find_variable_23():
+def spec_fun_find_variable_23(file_a2l,file_geskon,file_dcm,file_mech_table):
     print(f"algorithm 23")
     logger.debug('调用函数<algorithm 23>')
     spec_find_result = False
@@ -1457,7 +1457,7 @@ def spec_fun_find_variable_23():
 
 # Supply_Voltage_Threshold
 # max value of X-Axis of nEndStopHsd_UnderVoltageStartOffset_XAU16
-def spec_fun_find_variable_24():
+def spec_fun_find_variable_24(file_a2l,file_geskon,file_dcm,file_mech_table):
     print(f"algorithm 24")
     logger.debug('调用函数<algorithm 24>')
     spec_find_result = False
@@ -1492,7 +1492,7 @@ def spec_fun_find_variable_24():
 
 # Speed_Rotor_Threshold_Activate_HSD_Forward
 # Y Axis of nEndStopHsd_HighSpeedDampingStart_XAS16[0]
-def spec_fun_find_variable_25():
+def spec_fun_find_variable_25(file_a2l,file_geskon,file_dcm,file_mech_table):
     print(f"algorithm 25")
     logger.debug('调用函数<algorithm 25>')
     spec_find_result = False
@@ -1527,7 +1527,7 @@ def spec_fun_find_variable_25():
 
 # Voltage_Min_Range_Active_Reduction
 # x-values xLowVoltAssRed_UnderVoltageReductionLevel_XAU16[0]
-def spec_fun_find_variable_26():
+def spec_fun_find_variable_26(file_a2l,file_geskon,file_dcm,file_mech_table):
     print(f"algorithm 26")
     logger.debug('调用函数<algorithm 26>')
     spec_find_result = False
@@ -1563,7 +1563,7 @@ def spec_fun_find_variable_26():
 
 # Voltage_Min_Range_Active_Reduction
 # x-values xLowVoltAssRed_UnderVoltageReductionLevel_XAU16[3]
-def spec_fun_find_variable_27():
+def spec_fun_find_variable_27(file_a2l,file_geskon,file_dcm,file_mech_table):
     print(f"algorithm 27")
     logger.debug('调用函数<algorithm 27>')
     spec_find_result = False
@@ -1598,7 +1598,7 @@ def spec_fun_find_variable_27():
 
 # Voltage_Min_Range_Active_Limitation
 # x-values xLowVoltAssRed_UnderVoltageMotorCharTorqueAxis_XAU16[0]
-def spec_fun_find_variable_28():
+def spec_fun_find_variable_28(file_a2l,file_geskon,file_dcm,file_mech_table):
     print(f"algorithm 28")
     logger.debug('调用函数<algorithm 28>')
     spec_find_result = False
@@ -1633,7 +1633,7 @@ def spec_fun_find_variable_28():
 
 # Voltage_Min_Range_Active_Reduction
 # x-values xLowVoltAssRed_UnderVoltageMotorCharTorqueAxis_XAU16[3]
-def spec_fun_find_variable_29():
+def spec_fun_find_variable_29(file_a2l,file_geskon,file_dcm,file_mech_table):
     print(f"algorithm 29")
     logger.debug('调用函数<algorithm 29>')
     spec_find_result = False
@@ -1669,7 +1669,7 @@ def spec_fun_find_variable_29():
 
 # Voltage_Min_Range_Limitation_Gradient
 # x-values xLowVoltAssRed_UnderVoltageTorqueReductionGradient_XAU16[0]
-def spec_fun_find_variable_30():
+def spec_fun_find_variable_30(file_a2l,file_geskon,file_dcm,file_mech_table):
     print(f"algorithm 30")
     logger.debug('调用函数<algorithm 30>')
     spec_find_result = False
@@ -1704,7 +1704,7 @@ def spec_fun_find_variable_30():
 
 # Voltage_Min_Range_Limitation_Gradient
 # x-values xLowVoltAssRed_UnderVoltageTorqueReductionGradient_XAU16[1]
-def spec_fun_find_variable_31():
+def spec_fun_find_variable_31(file_a2l,file_geskon,file_dcm,file_mech_table):
     print(f"algorithm 31")
     logger.debug('调用函数<algorithm 31>')
     spec_find_result = False
@@ -1739,7 +1739,7 @@ def spec_fun_find_variable_31():
 
 
 # 根据变量名（parameter）从机械参数表/geskon/dcm中查询数据
-def spec_fun_find_varaible_mech_and_kon(file_mech_table, search_parameter):
+def spec_fun_find_varaible_mech_and_kon(file_a2l,file_geskon,file_dcm,file_mech_table, search_parameter):
     logger.debug('调用函数<spec_fun_find_varaible_mech_and_kon>')
     search_in_sheet_list = ["MechanicalData", "SW-Endstop", "Steering Angle", "LoadTracking", "other tuning"]
     spec_find_result = False
@@ -1750,7 +1750,7 @@ def spec_fun_find_varaible_mech_and_kon(file_mech_table, search_parameter):
         find_text_intxt(variable_to_find= search_parameter, file_name=file_dcm)
     get_value_result, first_find_geskon = get_Yvalue_last_from_KENNLINIE(paragraph_find_geskon)
     get_value_result, first_find_dcm = get_Yvalue_last_from_KENNLINIE(paragraph_find_dcm)
-    mech_value = fun_find_mech_by_para(search_parameter, search_in_sheet_list)
+    mech_value = fun_find_mech_by_para(file_mech_table,search_parameter, search_in_sheet_list)
 
     # 定义可能在多处存在的值
     dict_find_result_uunique = {"geskon": first_find_geskon, "dcm": first_find_dcm, "mech": mech_value}
@@ -1778,7 +1778,7 @@ def spec_fun_find_varaible_mech_and_kon(file_mech_table, search_parameter):
 
 # 根据数据名（data_module）或变量名从机械参数表/geskon/dcm中查询数据,并进行乘法运算factor为乘法系数）
 # 如果定义了参数在机械参数表中的坐标，优先以坐标作为输入查询
-def spec_fun_find_varaible_mech_and_kon_fur(file_mech_table, search_variable, search_parameter, mech_positon, factor):
+def spec_fun_find_varaible_mech_and_kon_fur(file_a2l,file_geskon,file_dcm,file_mech_table, search_variable, search_parameter, mech_positon, factor):
     logger.debug('调用函数<spec_fun_find_varaible_mech_and_kon_fur>')
     search_in_sheet_list = ["MechanicalData", "SW-Endstop", "Steering Angle", "LoadTracking", "other tuning"]
     spec_find_result = False
@@ -1790,7 +1790,7 @@ def spec_fun_find_varaible_mech_and_kon_fur(file_mech_table, search_variable, se
     get_value_result, first_find_geskon = get_Yvalue_last_from_KENNLINIE(paragraph_find_geskon)
     get_value_result, first_find_dcm = get_Yvalue_last_from_KENNLINIE(paragraph_find_dcm)
     if mech_positon[0] == "":
-        mech_value = fun_find_mech_by_para(search_parameter, search_in_sheet_list)
+        mech_value = fun_find_mech_by_para(file_mech_table,search_parameter, search_in_sheet_list)
     else:
         find_result, mech_value = fun_find_mech(file_mech_table, mech_positon[0], mech_positon[1], mech_positon[2], 10)
 

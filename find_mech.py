@@ -8,11 +8,11 @@ from logging_maker import logger
 # from get_file_path import get_file_path
 # file_a2l, file_geskon, file_dcm, file_data_mytable, file_mech_table = get_file_path()
 
-file_a2l = get_file_path.file_a2l
-file_dcm = get_file_path.file_dcm
-file_geskon = get_file_path.file_geskon
-file_mech_table = get_file_path.file_mech_table
-file_data_mytable = get_file_path.file_data_mytable
+# file_a2l = get_file_path.file_a2l
+# file_dcm = get_file_path.file_dcm
+# file_geskon = get_file_path.file_geskon
+# file_mech_table = get_file_path.file_mech_table
+# file_data_mytable = get_file_path.file_data_mytable
 
 # workbook = xlrd.open_workbook(file_mech_table)
 
@@ -87,10 +87,10 @@ def fun_find_mech(file_mech_table, located_sheet, position_row, position_col, nu
 
 
 # 通过parameter在指定sheet中查找机械参数值
-def fun_find_mech_by_para(search_parameter, search_in_sheet_list):
+def fun_find_mech_by_para(file_mech_table,search_parameter, search_in_sheet_list):
+    global mech_workbook
     print(f"查找机械参数表参数:{search_parameter}")
     logger.info(f"查找机械参数表参数:{search_parameter}")
-    global file_mech_table
     try:
         # 打开 Excel 文件
         mech_workbook = openpyxl.load_workbook(file_mech_table, data_only=True)
