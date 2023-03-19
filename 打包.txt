@@ -1,0 +1,3 @@
+WR01619
+
+"D:\Program Files\Python\Python310\Scripts\pyinstaller.exe" -F -w D:\MyPython\UIdataQuery_json\mainwindow_app.py

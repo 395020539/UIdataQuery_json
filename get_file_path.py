@@ -45,7 +45,7 @@ def get_file_path():
 
 
 #
-file_a2l, file_geskon, file_dcm, file_data_mytable, file_mech_table = get_file_path()
+# file_a2l, file_geskon, file_dcm, file_data_mytable, file_mech_table = get_file_path()
 #
 
 # file_a2l = file_a2l

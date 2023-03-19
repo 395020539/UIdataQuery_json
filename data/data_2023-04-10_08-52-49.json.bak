@@ -1,0 +1,12 @@
+{
+    "Speed_Invalid_Signal": " test \n",
+    "SPEED_VEHICLE_ASM_RAMP_IN": " test \n",
+    "GRADIENT_ASSIST_RAMP_IN_1": " test \n",
+    "Torque_Gradient_Rotor_Max_Returning_Assist": " test\n",
+    "Time_Rampup_Suspension": "test\n",
+    "Position_Deviation_Rack_Safety_CSAP": "test\n",
+    "Gradient_Handling_Rotortorque_Safety_BLOCK": "test\n",
+    "Min_Vehicle_speed": "test\n5.0\n",
+    "rotor_speed_LSS": "test\n",
+    "Factor_Input_Shaft_Torque_2_Rotor_Torque": "test"
+}

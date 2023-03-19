@@ -6,14 +6,15 @@ import time
 import re
 import get_file_path
 
+
 # from get_file_path import get_file_path
 # file_a2l, file_geskon, file_dcm, file_data_mytable, file_mech_table = get_file_path()
 
-file_a2l = get_file_path.file_a2l
-file_dcm = get_file_path.file_dcm
-file_geskon = get_file_path.file_geskon
-file_mech_table = get_file_path.file_mech_table
-file_data_mytable = get_file_path.file_data_mytable
+# file_a2l = get_file_path.file_a2l
+# file_dcm = get_file_path.file_dcm
+# file_geskon = get_file_path.file_geskon
+# file_mech_table = get_file_path.file_mech_table
+# file_data_mytable = get_file_path.file_data_mytable
 
 
 # file_geskon = "DF0D01C0100_RG3_X_SCU3_B3_VAR_01_geskon.kon"
@@ -423,6 +424,9 @@ def get_value_list_from_text(file_name, damos):
             find_result = False
         else:
             find_result = True
+        stx_result = remove_point(stx_result)
+        sty_result = remove_point(sty_result)
+        wert_result = remove_point(wert_result)
         print(f"查询结果: {find_result}; 查询参数值: {damos}; 查询文件: {file_name}")
         print(f"结果如下:\nST/X = {stx_result}\nST/Y = {sty_result}\nWERT = {wert_result}")
         logger.info(f"查询结果: {find_result}; 查询参数值: {damos}; 查询文件: {file_name}")
@@ -449,9 +453,15 @@ def get_value_list(value_line):
 def format_paragraph_find(paragraph_find):
     if type(paragraph_find) == str:
         if "WERT" in paragraph_find and not "ST/X" in paragraph_find and not "ST/Y" in paragraph_find:
-            paragraph_find = paragraph_find.replace("WERT","")
+            paragraph_find = paragraph_find.replace("WERT", "")
     return paragraph_find
 
 
-
-
+def remove_point(data_list):
+    """清理数据后面的点号"""
+    if len(data_list) > 0:
+        for i in range(1, len(data_list)):
+            # print("data_list[i]=", data_list[i])
+            if re.search(r'.$\B', data_list[i]):
+                data_list[i] = data_list[i][:-1]
+    return data_list

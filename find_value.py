@@ -8,17 +8,17 @@ from find_text import find_text_a2l
 from find_mech import fun_find_mech
 from specifical_variable_find import *
 
-file_a2l = get_file_path.file_a2l
-file_dcm = get_file_path.file_dcm
-file_geskon = get_file_path.file_geskon
-file_mech_table = get_file_path.file_mech_table
-file_data_mytable = get_file_path.file_data_mytable
-# from get_file_path import get_file_path
-# file_a2l, file_geskon, file_dcm, file_data_mytable, file_mech_table = get_file_path()
+#
+#
+#
+# if file_a2l:
+#     print(f"17{file_a2l}")
 
-# file_mech_table = "MechanicalDataSheet -机械参数表 Voyah_H97C_20220902.xlsm"
-# file_geskon = "XP1100D0100_RG3_X_SCU3_B3_VAR_01_geskon.kon"
-# file_dcm = "DCM_ALL_XIAO PENG_F30_First Tuning(Normal mode_01+Comfortable_06+Sport_11)_Based on XP1100B0100_20220705.DCM"
+# file_a2l = get_file_path.file_a2l
+# file_dcm = get_file_path.file_dcm
+# file_geskon = get_file_path.file_geskon
+# file_mech_table = get_file_path.file_mech_table
+# file_data_mytable = get_file_path.file_data_mytable
 
 variable_name_list = ("Time_Rampup_Suspension",
                       "Position_Deviation_Rack_Safety_CSAP",
@@ -158,21 +158,24 @@ parameter_list = ["lEndStop_SteerRange_XDU16",
                   "tEndStop_MaxTimeIncrDamping_XDU8"]
 
 
-def fun_find_para(variable_name, variable):
+def fun_find_para(variable_name, variable,file_a2l,file_geskon,file_dcm,file_data_mytable,file_mech_table):
     print(f"查找对象: {variable_name}, {variable}")
     logger.info(f"-----调用查找-----")
     logger.info(f"查找对象: {variable_name}, {variable}")
     fun_find_result = False
     fun_find_para = ""
     if variable in parameter_list:
-        fun_find_result, fun_find_para = spec_fun_find_varaible_mech_and_kon(file_mech_table, variable)
+        fun_find_result, fun_find_para = spec_fun_find_varaible_mech_and_kon(file_a2l,file_geskon,file_dcm,file_mech_table, variable)
     elif variable_name in a2l_parameter_list:
         fun_find_result, fun_find_para = find_text_a2l(dict_a2l_parameter[variable_name][0],
                                                        file_a2l,
                                                        dict_a2l_parameter[variable_name][1],
                                                        dict_a2l_parameter[variable_name][2])
     elif variable_name in mech_parameter_list:
-        fun_find_result, fun_find_para = spec_fun_find_varaible_mech_and_kon_fur(file_mech_table,
+        fun_find_result, fun_find_para = spec_fun_find_varaible_mech_and_kon_fur(file_a2l,
+                                                                                 file_geskon,
+                                                                                 file_dcm,
+                                                                                 file_mech_table,
                                                                                  variable_name,
                                                                                  dict_mech_parameter[variable_name][0],
                                                                                  [dict_mech_parameter[variable_name][1],
@@ -185,131 +188,131 @@ def fun_find_para(variable_name, variable):
         if variable_name == variable_name_list[0]:
             print(f"需计算数据名为：{variable_name_list[0]}")
             logger.info(f"需计算数据名为：{variable_name_list[0]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_0()
+            fun_find_result, fun_find_para = spec_fun_find_variable_0(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[1]:
             print(f"需计算数据名为：{variable_name_list[1]}")
             logger.info(f"需计算数据名为：{variable_name_list[1]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_1()
+            fun_find_result, fun_find_para = spec_fun_find_variable_1(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[2]:
             print(f"需计算数据名为：{variable_name_list[2]}")
             logger.info(f"需计算数据名为：{variable_name_list[2]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_2()
+            fun_find_result, fun_find_para = spec_fun_find_variable_2(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[3]:
             print(f"需计算数据名为：{variable_name_list[3]}")
             logger.info(f"需计算数据名为：{variable_name_list[3]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_3()
+            fun_find_result, fun_find_para = spec_fun_find_variable_3(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[4]:
             print(f"需计算数据名为：{variable_name_list[4]}")
             logger.info(f"需计算数据名为：{variable_name_list[4]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_4()
+            fun_find_result, fun_find_para = spec_fun_find_variable_4(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[5]:
             print(f"需计算数据名为：{variable_name_list[5]}")
             logger.info(f"需计算数据名为：{variable_name_list[5]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_5()
+            fun_find_result, fun_find_para = spec_fun_find_variable_5(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[6]:
             print(f"需计算数据名为：{variable_name_list[6]}")
             logger.info(f"需计算数据名为：{variable_name_list[6]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_6()
+            fun_find_result, fun_find_para = spec_fun_find_variable_6(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[7]:
             print(f"需计算数据名为：{variable_name_list[7]}")
             logger.info(f"需计算数据名为：{variable_name_list[7]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_7()
+            fun_find_result, fun_find_para = spec_fun_find_variable_7(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[8]:
             print(f"需计算数据名为：{variable_name_list[8]}")
             logger.info(f"需计算数据名为：{variable_name_list[8]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_8()
+            fun_find_result, fun_find_para = spec_fun_find_variable_8(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[9]:
             print(f"需计算数据名为：{variable_name_list[9]}")
             logger.info(f"需计算数据名为：{variable_name_list[9]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_9()
+            fun_find_result, fun_find_para = spec_fun_find_variable_9(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[10]:
             print(f"需计算数据名为：{variable_name_list[10]}")
             logger.info(f"需计算数据名为：{variable_name_list[10]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_10()
+            fun_find_result, fun_find_para = spec_fun_find_variable_10(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[11]:
             print(f"需计算数据名为：{variable_name_list[11]}")
             logger.info(f"需计算数据名为：{variable_name_list[11]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_11()
+            fun_find_result, fun_find_para = spec_fun_find_variable_11(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[12]:
             print(f"需计算数据名为：{variable_name_list[12]}")
             logger.info(f"需计算数据名为：{variable_name_list[12]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_12()
+            fun_find_result, fun_find_para = spec_fun_find_variable_12(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[13]:
             print(f"需计算数据名为：{variable_name_list[13]}")
             logger.info(f"需计算数据名为：{variable_name_list[13]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_13()
+            fun_find_result, fun_find_para = spec_fun_find_variable_13(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[14]:
             print(f"需计算数据名为：{variable_name_list[14]}")
             logger.info(f"需计算数据名为：{variable_name_list[14]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_14()
+            fun_find_result, fun_find_para = spec_fun_find_variable_14(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[15]:
             print(f"需计算数据名为：{variable_name_list[15]}")
             logger.info(f"需计算数据名为：{variable_name_list[15]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_15()
+            fun_find_result, fun_find_para = spec_fun_find_variable_15(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[16]:
             print(f"需计算数据名为：{variable_name_list[16]}")
             logger.info(f"需计算数据名为：{variable_name_list[16]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_16()
+            fun_find_result, fun_find_para = spec_fun_find_variable_16(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[17]:
             print(f"需计算数据名为：{variable_name_list[17]}")
             logger.info(f"需计算数据名为：{variable_name_list[17]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_17()
+            fun_find_result, fun_find_para = spec_fun_find_variable_17(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[18]:
             print(f"需计算数据名为：{variable_name_list[18]}")
             logger.info(f"需计算数据名为：{variable_name_list[18]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_18()
+            fun_find_result, fun_find_para = spec_fun_find_variable_18(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[19]:
             print(f"需计算数据名为：{variable_name_list[19]}")
             logger.info(f"需计算数据名为：{variable_name_list[19]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_19()
+            fun_find_result, fun_find_para = spec_fun_find_variable_19(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[20]:
             print(f"需计算数据名为：{variable_name_list[20]}")
             logger.info(f"需计算数据名为：{variable_name_list[20]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_20()
+            fun_find_result, fun_find_para = spec_fun_find_variable_20(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[21]:
             print(f"需计算数据名为：{variable_name_list[21]}")
             logger.info(f"需计算数据名为：{variable_name_list[21]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_21()
+            fun_find_result, fun_find_para = spec_fun_find_variable_21(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[22]:
             print(f"需计算数据名为：{variable_name_list[22]}")
             logger.info(f"需计算数据名为：{variable_name_list[22]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_22()
+            fun_find_result, fun_find_para = spec_fun_find_variable_22(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[23]:
             print(f"需计算数据名为：{variable_name_list[23]}")
             logger.info(f"需计算数据名为：{variable_name_list[23]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_23()
+            fun_find_result, fun_find_para = spec_fun_find_variable_23(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[24]:
             print(f"需计算数据名为：{variable_name_list[24]}")
             logger.info(f"需计算数据名为：{variable_name_list[24]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_24()
+            fun_find_result, fun_find_para = spec_fun_find_variable_24(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[25]:
             print(f"需计算数据名为：{variable_name_list[25]}")
             logger.info(f"需计算数据名为：{variable_name_list[25]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_25()
+            fun_find_result, fun_find_para = spec_fun_find_variable_25(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[26]:
             print(f"需计算数据名为：{variable_name_list[26]}")
             logger.info(f"需计算数据名为：{variable_name_list[26]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_26()
+            fun_find_result, fun_find_para = spec_fun_find_variable_26(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[27]:
             print(f"需计算数据名为：{variable_name_list[27]}")
             logger.info(f"需计算数据名为：{variable_name_list[27]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_27()
+            fun_find_result, fun_find_para = spec_fun_find_variable_27(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[28]:
             print(f"需计算数据名为：{variable_name_list[28]}")
             logger.info(f"需计算数据名为：{variable_name_list[28]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_28()
+            fun_find_result, fun_find_para = spec_fun_find_variable_28(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[29]:
             print(f"需计算数据名为：{variable_name_list[29]}")
             logger.info(f"需计算数据名为：{variable_name_list[29]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_29()
+            fun_find_result, fun_find_para = spec_fun_find_variable_29(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[30]:
             print(f"需计算数据名为：{variable_name_list[30]}")
             logger.info(f"需计算数据名为：{variable_name_list[30]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_30()
+            fun_find_result, fun_find_para = spec_fun_find_variable_30(file_a2l,file_geskon,file_dcm,file_mech_table)
         if variable_name == variable_name_list[31]:
             print(f"需计算数据名为：{variable_name_list[31]}")
             logger.info(f"需计算数据名为：{variable_name_list[30]}")
-            fun_find_result, fun_find_para = spec_fun_find_variable_31()
+            fun_find_result, fun_find_para = spec_fun_find_variable_31(file_a2l,file_geskon,file_dcm,file_mech_table)
 
     else:
         print(f"不需特殊计算: {variable_name}")

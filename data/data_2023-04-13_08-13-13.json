@@ -1,0 +1,12 @@
+{
+    "Amplify Steering Motion#Speed_Invalid_Signal": " 80.0000 \n",
+    "Amplify Steering Motion#SPEED_VEHICLE_ASM_RAMP_IN": " 7.0000 \n",
+    "Amplify Steering Motion#GRADIENT_ASSIST_RAMP_IN_1": " 0.500000 \n",
+    "Amplify Steering Motion#Torque_Gradient_Rotor_Max_Returning_Assist": " 50.0000 \n",
+    "Amplify Steering Motion#Time_Rampup_Suspension": "0.0700\n",
+    "Limit Steering Stroke#Position_Deviation_Rack_Safety_CSAP": "0.825\n",
+    "Limit Steering Stroke#Gradient_Handling_Rotortorque_Safety_BLOCK": "(geskon)\n0.0069885254\n(dcm)\n0.0069885254\n(mech)\n0.007\n",
+    "Limit Steering Stroke#Min_Vehicle_speed": "(geskon)\n3.0\n(dcm)\n3.0\n(mech)\n5.0\n",
+    "Limit Steering Stroke#rotor_speed_LSS": "200.0\n",
+    "Limit Steering Stroke#Factor_Input_Shaft_Torque_2_Rotor_Torque": "(geskon)0.0379639\n(dcm)0.0379639\n(mech)0.0379585"
+}

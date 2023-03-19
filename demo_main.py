@@ -12,9 +12,6 @@
 #
 ########################################################################################################################
 
-
-
-
 from logging_maker import logger
 
 print("*" * 80)
@@ -28,11 +25,11 @@ logger.info("Version: demo V1.1")
 logger.info("开始运行")
 
 
-from get_file_path import *
+# from get_file_path import *
 import xlrd
 from openpyxl.styles import PatternFill
 from compare_text import simp_str
-from find_value import *
+from find_value import variable_name_list,dict_mech_parameter,dict_a2l_parameter,parameter_list,fun_find_para
 from find_text import format_paragraph_find
 import openpyxl
 import os
@@ -87,7 +84,7 @@ def check_title(first_row):
     return check_title_result, data_module_pos_col, wert_pos_col, tuning_pra_pos_col
 
 
-def update_wert(data_module, sheet_name, data_wert_new, data_wert, wert_pos_col):
+def update_wert(file_data_mytable,data_module, sheet_name, data_wert_new, data_wert, wert_pos_col):
     if data_wert_new:
         print(f"type data_wert_new: {type(data_wert_new)}")
         logger.debug(f"type data_wert_new: {type(data_wert_new)}")
@@ -140,13 +137,14 @@ def update_wert(data_module, sheet_name, data_wert_new, data_wert, wert_pos_col)
             logger.info(f"保存Excel")
 
 
-def main_data_query(file_data_mytable):
+def main_data_query(file_a2l,file_geskon,file_dcm,file_data_mytable,file_mech_table):
     print(f"Debug:{file_data_mytable}")
     logger.info(f"Data表为:{file_data_mytable}")
     workbook = xlrd.open_workbook(file_data_mytable)
     list_sheet_names = workbook.sheet_names()
     print(f"list_sheet_names = {list_sheet_names}")
     logger.debug(f"list_sheet_names = {list_sheet_names}")
+    list_data_object =[]
     for sheet_name in list_sheet_names:
         print(f"sheet_name = {sheet_name}")
         logger.debug(f"sheet_name = {sheet_name}")
@@ -159,11 +157,11 @@ def main_data_query(file_data_mytable):
             data_module_col = mytable.col_values(data_module_pos_col, 0, None)
             i = 1
             for data_module_name in data_module_col:
-                data_module = DataModule(sheet_name, [i, data_module_pos_col], data_module_col[i])
+                data_module = DataModule(sheet_name, [i, data_module_pos_col], data_module_col[i],file_a2l,file_geskon,file_dcm,file_data_mytable,file_mech_table)
                 data_name = data_module.get_name(mytable)
                 data_variable = data_module.get_variable(mytable, tuning_pra_pos_col)
                 data_wert = data_module.get_wert(mytable, wert_pos_col)
-                data_wert_new = data_module.get_wert_new()
+                data_wert_new = data_module.get_wert_new(file_a2l,file_geskon,file_dcm,file_data_mytable,file_mech_table)
                 i += 1
                 print(f"i = {i}")
                 print(
@@ -180,12 +178,20 @@ def main_data_query(file_data_mytable):
                     f"变量名: {data_module.variable},\n"
                     f"原参数值: {data_module.wert},\n"
                     f"新参数值: {data_module.wert_new}")
+                if data_module.wert_new != "":
+                    list_data_object.append(data_module)
+                print(f"list data module = /n{list_data_object}")
 
                 # 更新写入wert_new
-                update_wert(data_module, sheet_name, data_wert_new, data_wert, wert_pos_col)
+                update_wert(file_data_mytable,data_module, sheet_name, data_wert_new, data_wert, wert_pos_col)
 
                 if i == mytable.nrows:
                     break
+
+    from create_json import create_json_from_data
+    create_json_from_data(list_data_object)
+
+
 
 
 class DataModule:
@@ -196,7 +202,7 @@ class DataModule:
     variable = ""
     wert_new = ""
 
-    def __init__(self, sheet, position, name):
+    def __init__(self, sheet, position, name,file_a2l,file_geskon,file_dcm,file_data_mytable,file_mech_table):
         self.sheet = sheet
         self.position = position
         self.name = name
@@ -231,9 +237,9 @@ class DataModule:
         self.wert = data_wert
         return self.wert
 
-    def get_wert_new(self):
+    def get_wert_new(self,file_a2l,file_geskon,file_dcm,file_data_mytable,file_mech_table):
         # find_result, paragraph_find, = fun_find_text(self.variable, file_geskon, file_dcm)
-        find_result, paragraph_find, = fun_find_para(self.name, self.variable)
+        find_result, paragraph_find, = fun_find_para(self.name, self.variable,file_a2l,file_geskon,file_dcm,file_data_mytable,file_mech_table)
         if not find_result:
             self.wert_new = ""
         else:
@@ -243,7 +249,7 @@ class DataModule:
         logger.info(f"获取新参数值:\n{self.wert_new}")
         return self.wert_new
 
-def main():
+def main(file_data_mytable):
     # file_a2l = get_file_path.file_a2l
     # file_dcm = get_file_path.file_dcm
     # file_geskon = get_file_path.file_geskon
@@ -265,7 +271,7 @@ def main():
 
 if __name__ == '__main__':
     t_start = time.perf_counter()
-    main()
+    main(file_data_mytable)
     t_end = time.perf_counter()
     t_cost = t_end - t_start
 

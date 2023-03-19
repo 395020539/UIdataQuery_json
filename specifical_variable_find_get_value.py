@@ -10,11 +10,11 @@ from find_mech import fun_find_mech
 # from get_file_path import get_file_path
 # file_a2l, file_geskon, file_dcm, file_data_mytable, file_mech_table = get_file_path()
 
-file_a2l = get_file_path.file_a2l
-file_dcm = get_file_path.file_dcm
-file_geskon = get_file_path.file_geskon
-file_mech_table = get_file_path.file_mech_table
-file_data_mytable = get_file_path.file_data_mytable
+# file_a2l = get_file_path.file_a2l
+# file_dcm = get_file_path.file_dcm
+# file_geskon = get_file_path.file_geskon
+# file_mech_table = get_file_path.file_mech_table
+# file_data_mytable = get_file_path.file_data_mytable
 
 # file_mech_table = "MechanicalDataSheet -机械参数表 Voyah_H97C_20220902.xlsm"
 # file_geskon = "XP1100D0100_RG3_X_SCU3_B3_VAR_01_geskon.kon"
