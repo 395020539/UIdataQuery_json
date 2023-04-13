@@ -194,6 +194,8 @@ def main_data_query(file_a2l,file_geskon,file_dcm,file_data_mytable,file_mech_ta
 
 
 
+
+
 class DataModule:
     sheet = ""
     position = ""  # postion[0] is row, postion[1] is col
