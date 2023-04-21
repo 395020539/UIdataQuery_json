@@ -45,13 +45,25 @@ color: rgb(56, 56, 56);</string>
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="mouseTracking">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="whatsThis">
     <string/>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">QPushButton {
+    background-color: #4CAF50;
+    border-radius: 10px;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: #3E8E41;
+}
+
+QPushButton:pressed {
+    background-color: #2E6739;
+}</string>
    </property>
    <property name="text">
     <string>开始更新</string>
@@ -265,7 +277,28 @@ border: none;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QLabel" name="logo">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>260</y>
+     <width>121</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="img.qrc">:/img/bosch_icon.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="img.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -41792,3 +41792,10 @@ True
 2023-04-13 08:13:13,884 INFO 保存Excel
 2023-04-13 08:13:13,974 INFO 运行耗时:3.26730027s
 2023-04-13 08:13:13,974 INFO 进程结束
+2023-04-17 08:46:12,355 INFO 初始化日志...
+2023-04-17 08:46:12,366 INFO SysEng 2.0 Data Query Tool
+2023-04-17 08:46:12,366 INFO Version: demo V1.1
+2023-04-17 08:46:12,366 INFO 开始运行
+2023-04-17 08:46:13,434 INFO variable_name_list:('Time_Rampup_Suspension', 'Position_Deviation_Rack_Safety_CSAP', 'Gradient_Handling_Rotortorque_Safety_BLOCK', 'Min_Vehicle_speed', 'rotor_speed_LSS', 'Factor_Input_Shaft_Torque_2_Rotor_Torque', 'Speed_Rack_HSD_Start_1', 'Speed_Rack_HSD_Start_2', 'Speed_Rotor_Damping_Activate', 'Torque_HSD_Short_Before_Endstop', 'Torque_HSD_High_Distance_2_Endstop', 'Speed_Tie_Rod_Damping_Activate', 'Voltage_Power_Supply_Threshold', 'Speed_Tie_Rod_Low', 'Speed_Tie_Rod_High', 'Speed_Tie_Rod_Undervoltage_Offset', 'Speed_Vehicle_Thres_DynStMotTrq', 'Force_Rack_Max_TargetStTrqCurve', 'Ratio_RackForce2MotorTrq', 'Distance_Travel_UpdateStatus_EndStopLearning_Rack', 'Distance_Travel_FromEndStop_EndStopDampingActive', 'Distance_Travel_FromEndStop_EndStopDampingPeak', 'Speed_Border1_ExtraDamping_Motor', 'Speed_Border2_ExtraDamping_Motor', 'Supply_Voltage_Threshold', 'Speed_Rotor_Threshold_Activate_HSD_Forward', 'Voltage_Min_Range_Active_Reduction', 'Voltage_Max_Range_Active_Reduction', 'Voltage_Min_Range_Active_Limitation', 'Voltage_Max_Range_Active_Limitation', 'Voltage_Min_Range_Limitation_Gradient', 'Voltage_Max_Range_Limitation_Gradient')
+2023-04-17 08:46:13,435 INFO a2l_parameter_list:['ROTOR_SPEED_MIN_VALID', 'ROTOR_SPEED_MAX_VALID', 'GRADIENT_MAX_CALCULATE_ROTOR_MOTION', 'LMT_MIN_ROTORSPEED', 'LMT_MAX_ROTORSPEED', 'LMT_MAX_NOMINALMOTORTORQUE', 'LMT_MIN_NOMINALMOTORTORQUE', 'LMT_MIN_STEERTORQUESUM', 'LMT_MAX_STEERTORQUESUM', 'PTSF_MIN_MOTTRQSUM', 'PTSF_MAX_MOTTRQSUM', 'PTSF_MIN_STEERINGANGLE', 'PTSF_MAX_STEERINGANGLE', 'PTSF_MIN_ROTORSPEED', 'PTSF_MAX_ROTORSPEED', 'PTSF_MIN_CURRENTLOWESTREDLEVEL', 'PTSF_MAX_CURRENTLOWESTREDLEVEL']
+2023-04-17 08:46:13,442 INFO Data表为:

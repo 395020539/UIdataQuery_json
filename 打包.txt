@@ -1,3 +1,6 @@
 WR01619
 
 "D:\Program Files\Python\Python310\Scripts\pyinstaller.exe" -F -w D:\MyPython\UIdataQuery_json\mainwindow_app.py
+
+
+"D:\Program Files\Python\Python310\Scripts\pyinstaller.exe" -F -w -i D:\MyPython\UIdataQuery_json\icon.ico D:\MyPython\UIdataQuery_json\mainwindow_app.py

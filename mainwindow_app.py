@@ -246,6 +246,7 @@ class MyWindow(QMainWindow, Ui_Formdemo):
 
 if __name__ == '__main__':
     app = QApplication([])
+    app.setStyle("Fusion")
     window = MyWindow()
     window.show()
     app.exec()

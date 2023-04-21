@@ -17,6 +17,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QGridLayout, QLabel, QLineEdit,
     QPushButton, QSizePolicy, QWidget)
+import img
 
 class Ui_Formdemo(object):
     def setupUi(self, Formdemo):
@@ -32,8 +33,20 @@ class Ui_Formdemo(object):
         self.startbtn.setObjectName(u"startbtn")
         self.startbtn.setGeometry(QRect(280, 200, 121, 51))
         self.startbtn.setCursor(QCursor(Qt.PointingHandCursor))
-        self.startbtn.setMouseTracking(False)
-        self.startbtn.setStyleSheet(u"")
+        self.startbtn.setMouseTracking(True)
+        self.startbtn.setStyleSheet(u"QPushButton {\n"
+"    background-color: #4CAF50;\n"
+"    border-radius: 10px;\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #3E8E41;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #2E6739;\n"
+"}")
         self.layoutWidget = QWidget(Formdemo)
         self.layoutWidget.setObjectName(u"layoutWidget")
         self.layoutWidget.setGeometry(QRect(120, 40, 431, 163))
@@ -147,6 +160,11 @@ class Ui_Formdemo(object):
 "background-color: rgb(240, 240, 240);\n"
 "border: none;")
         self.lineEdit_ver.setAlignment(Qt.AlignCenter)
+        self.logo = QLabel(Formdemo)
+        self.logo.setObjectName(u"logo")
+        self.logo.setGeometry(QRect(10, 260, 121, 31))
+        self.logo.setPixmap(QPixmap(u":/img/bosch_icon.png"))
+        self.logo.setScaledContents(True)
 
         self.retranslateUi(Formdemo)
 
@@ -182,5 +200,6 @@ class Ui_Formdemo(object):
         self.lineEdit_info.setText("")
         self.lineEdit_info.setPlaceholderText(QCoreApplication.translate("Formdemo", u"\u7b49\u5f85\u8fd0\u884c... ...", None))
         self.lineEdit_ver.setText(QCoreApplication.translate("Formdemo", u"Ver: 1.1 Demo", None))
+        self.logo.setText("")
     # retranslateUi
 
